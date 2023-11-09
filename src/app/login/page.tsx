@@ -1,13 +1,12 @@
 "use client";
 
-import Button from "../components/Button";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { PiStudentFill } from "react-icons/pi";
-import BackgroundImage from "@/assets/background.png";
 import LogoImage from "@/assets/logo_low.png";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { PiStudentFill } from "react-icons/pi";
 import AnimatedBackground from "../components/AnimatedBackground";
+import Button from "../components/Button";
 
 const LoginPage = () => {
   const router = useRouter();
