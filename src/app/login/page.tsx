@@ -4,8 +4,10 @@ import Button from "../components/Button";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
 import BackgroundImage from "@/assets/background.png";
+import LogoImage from "@/assets/logo_low.png";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -20,18 +22,18 @@ const LoginPage = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
-      <img
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
-        src={BackgroundImage.src}
-        alt="background"
-      />
-      <div className="flex gap-10 absolute top-10 rounded-md bg-white p-10">
-        <p className="text-xl">Global Speak</p>
-        <p>imagem da global wizard</p>
+      <AnimatedBackground />
+      <div className="flex w-[400px] justify-around items-center absolute top-10 rounded-md bg-white p-5 select-none">
+        <p className="text-xl">Global Speaking</p>
+        <img
+          className="w-32 h-32"
+          src={LogoImage.src}
+          alt="Global Speaking Logo"
+        />
       </div>
       <div className="rounded-md bg-white p-10">
-        <p className="mb-10">Bem vindo a Global Speak !</p>
-        <p className="mb-10">Eu sou:</p>
+        <p className="mb-10">Bem vindo a Global Speaking !</p>
+        <p className="mb-10">Você é:</p>
         <div className="flex justify-center items-center gap-10">
           <Button className="gap-3" onClick={redirectToAlunoLoginPage}>
             <PiStudentFill size="30px" />

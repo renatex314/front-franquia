@@ -17,6 +17,7 @@ import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ZodIssueCode, z } from "zod";
 import AppIcon from "../../components/AppIcon";
+import AnimatedBackground from "@/app/components/AnimatedBackground";
 
 const loginFormSchema = z
   .object({
@@ -106,23 +107,10 @@ const LoginPage = () => {
 
   return (
     <div className="flex h-full w-full p-5">
-      <Image
-        className="absolute left-0 top-0 z-[-1] h-full w-full object-cover object-left-bottom"
-        src={BackgroundImage}
-        alt=""
-      />
-      <div className="h-fit rounded-md bg-blue-500 text-white drop-shadow-2xl shadow-2xl shadow-blue-500 p-12 text-4xl font-medium">
-        Bem vindo a GlobalSpeak !
-      </div>
+      <AnimatedBackground />
       <div className="ml-auto flex h-full w-[400px] grow-0 flex-col items-center rounded-xl bg-white shadow-md">
         <AppIcon className="mt-[20%]" />
         <p className="mt-8">Faça o login para poder prosseguir</p>
-        {/* <p className="text-xs text-center">
-          Não possui uma conta ?{" "}
-          <Link className="text-blue-700 underline" href={"/register"}>
-            clique aqui para se registrar
-          </Link>
-        </p> */}
         <form
           className="my-auto gap-5 flex flex-col w-[80%] mx-auto grow pt-10"
           onSubmit={handleSubmit(onSubmitHandler)}
