@@ -1,13 +1,7 @@
 "use client";
 
-import { useTooltip } from "@/providers/TooltipProvider";
-import Link from "next/link";
-import { FaUserAlt, FaUserAstronaut } from "react-icons/fa";
-import AppIcon from "../AppIcon";
-import { Divider, Menu, MenuItem } from "@mui/material";
-import { useRef, useState } from "react";
-import AppLogo from "./AppLogo";
 import AccountSection from "./AccountSection";
+import AppLogo from "./AppLogo";
 
 const NavBar = () => {
   return (

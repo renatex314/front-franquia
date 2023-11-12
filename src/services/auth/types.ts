@@ -3,7 +3,7 @@ export interface GetTokenByAlunoDataProps {
   alunoSenha: string;
 }
 
-export interface GetAlunoDataResponse {
+export interface AlunoDataResponse {
   alunoNome: string;
   alunoEndereco?: string;
   alunoTelefone?: string;
@@ -11,4 +11,17 @@ export interface GetAlunoDataResponse {
   alunoCpf: string;
   alunoEmail: string;
   alunoFranquiaId: number;
+}
+
+export interface ProfessorDataResponse {
+  professorNome: string;
+  professorTelefone?: string;
+  professorEmail: string;
+  professorSenhaHash: string;
+  professorCpf: string;
+}
+
+export interface GetUserDataResponse {
+  role: "aluno" | "professor";
+  userData: AlunoDataResponse | ProfessorDataResponse;
 }
