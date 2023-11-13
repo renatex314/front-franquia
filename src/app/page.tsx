@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-import AnimatedBackground from "../../components/AnimatedBackground";
-import Button from "../../components/Button";
+import AnimatedBackground from "../components/AnimatedBackground";
+import Button from "../components/Button";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -31,7 +31,7 @@ const LoginPage = () => {
         />
       </div>
       <div className="rounded-md bg-white p-10">
-        <p className="mb-10">Bem vindo a Global Speaking !</p>
+        <p className="mb-10">Seja Bem vindo(a) a Global Speaking !</p>
         <p className="mb-10">Você é:</p>
         <div className="flex justify-center items-center gap-10">
           <Button className="gap-3" onClick={redirectToAlunoLoginPage}>
