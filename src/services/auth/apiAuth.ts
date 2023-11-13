@@ -1,16 +1,13 @@
 import { api } from "@/core";
-import {
-  GetAlunoDataResponse,
-  GetTokenByAlunoDataProps
-} from "./types";
+import { GetUserDataResponse, GetTokenByAlunoDataProps } from "./types";
 
 const getTokenByAlunoData = async (props: GetTokenByAlunoDataProps) =>
-  (await api.post<string>("/login", props))?.data;
+  (await api.post<string>("/login/aluno", props))?.data;
 
-const getAlunoDataAuthenticated = async () =>
-  (await api.get<GetAlunoDataResponse>("/api/me"))?.data;
+const getUserDataAuthenticated = async () =>
+  (await api.get<GetUserDataResponse>("/api/me"))?.data;
 
 export const apiAuth = {
   getTokenByAlunoData,
-  getAlunoDataAuthenticated,
+  getUserDataAuthenticated,
 };

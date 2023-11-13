@@ -1,7 +1,7 @@
 "use client";
 
+import AnimatedBackground from "@/components/AnimatedBackground";
 import Button from "@/components/Button";
-import BackgroundImage from "@/assets/background.png";
 import { authorization } from "@/core";
 import { useFeedback } from "@/providers/FeedbackProvider";
 import services from "@/services";
@@ -10,40 +10,37 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ZodIssueCode, z } from "zod";
 import AppIcon from "../../../components/AppIcon";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
 const loginFormSchema = z
   .object({
-    alunoEmail: z.string(),
-    alunoSenha: z.string(),
+    professorEmail: z.string(),
+    professorSenha: z.string(),
   })
   .superRefine((data, ctx) => {
-    if (data.alunoEmail === "" || !data.alunoEmail) {
+    if (data.professorEmail === "" || !data.professorEmail) {
       ctx.addIssue({
         message: "Você precisa informar o E-mail",
         code: ZodIssueCode.custom,
-        path: ["alunoEmail"],
+        path: ["professorEmail"],
       });
     }
 
-    if (data.alunoSenha === "" || !data.alunoSenha) {
+    if (data.professorSenha === "" || !data.professorSenha) {
       ctx.addIssue({
         message: "Você precisa informar a Senha",
         code: ZodIssueCode.custom,
-        path: ["alunoSenha"],
+        path: ["professorSenha"],
       });
     }
   });
 type FormSchemaType = z.infer<typeof loginFormSchema>;
 
-const LoginPage = () => {
+const ProfessorLoginPage = () => {
   const router = useRouter();
   const feedback = useFeedback();
   const {
@@ -53,8 +50,8 @@ const LoginPage = () => {
   } = useForm<FormSchemaType>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      alunoEmail: "",
-      alunoSenha: "",
+      professorEmail: "",
+      professorSenha: "",
     },
   });
 
@@ -81,12 +78,9 @@ const LoginPage = () => {
     },
   });
 
-  const onSubmitHandler = useCallback(
-    (formData: FormSchemaType) => {
-      mutate(formData);
-    },
-    [mutate]
-  );
+  const onSubmitHandler = useCallback((formData: FormSchemaType) => {
+    // mutate(formData);
+  }, []);
 
   useEffect(() => {
     authorization.setOnNetworkError(() => {
@@ -100,7 +94,7 @@ const LoginPage = () => {
       const accessToken = authorization.getAccessToken();
 
       if (accessToken) {
-        router.push("/student");
+        router.push("/");
       }
     });
   }, [feedback, router]);
@@ -116,20 +110,20 @@ const LoginPage = () => {
           onSubmit={handleSubmit(onSubmitHandler)}
         >
           <TextField
-            {...register("alunoEmail")}
+            {...register("professorEmail")}
             variant="outlined"
             label="E-mail"
             type="email"
-            error={!!errors?.alunoEmail?.message}
-            helperText={errors?.alunoEmail?.message}
+            error={!!errors?.professorEmail?.message}
+            helperText={errors?.professorEmail?.message}
           />
           <TextField
-            {...register("alunoSenha")}
+            {...register("professorSenha")}
             variant="outlined"
             label="Senha"
             type="password"
-            error={!!errors?.alunoSenha?.message}
-            helperText={errors?.alunoSenha?.message}
+            error={!!errors?.professorSenha?.message}
+            helperText={errors?.professorSenha?.message}
           />
           <Button type="submit" loading={isLoading}>
             Entrar
@@ -140,4 +134,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ProfessorLoginPage;

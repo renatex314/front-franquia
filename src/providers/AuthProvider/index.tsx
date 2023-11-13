@@ -4,11 +4,11 @@ import { authorization } from "@/core";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFeedback } from "../FeedbackProvider";
-import { GetAlunoDataResponse } from "@/services/auth/types";
+import { GetUserDataResponse } from "@/services/auth/types";
 import { apiAuth } from "@/services/auth";
 
 interface AuthData {
-  client: GetAlunoDataResponse | null;
+  user: GetUserDataResponse | null;
 }
 
 interface AuthProviderData {
@@ -18,7 +18,7 @@ interface AuthProviderData {
 
 const authProviderData: AuthProviderData = {
   authData: {
-    client: null,
+    user: null,
   },
   subscriptions: [],
 };
@@ -68,9 +68,9 @@ const AuthProvider = ({ children, onDeauthRoute }: AuthProviderProps) => {
             type: "info",
           });
         }
-      } else {
-        const clientData = await apiAuth.getAlunoDataAuthenticated();
-        authProviderData.authData.client = clientData;
+      } else if (!authProviderData.authData.user) {
+        const userData = await apiAuth.getUserDataAuthenticated();
+        authProviderData.authData.user = userData;
 
         authProviderData.subscriptions.forEach((callback) =>
           callback(authProviderData.authData)

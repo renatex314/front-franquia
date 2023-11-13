@@ -29,7 +29,7 @@ const Button = ({
       ) : (
         <>
           {" "}
-          <CircularProgress className="text-white" />
+          <CircularProgress className="!text-white" />
         </>
       )}
     </button>

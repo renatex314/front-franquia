@@ -3,7 +3,7 @@ import "./globals.css";
 import AppProvider from "@/providers/AppProvider";
 
 const nunito = Nunito({
-  weight: "600",
+  weight: ["600", "800"],
   subsets: ["latin"],
 });
 
@@ -17,6 +17,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <title>Front-end loja</title>
+        <link rel="icon" href="./icone.ico" sizes="any" />
       </head>
       <body className={nunito.className}>
         <AppProvider>{children}</AppProvider>

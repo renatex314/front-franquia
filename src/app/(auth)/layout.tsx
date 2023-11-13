@@ -1,5 +1,6 @@
 import AuthProvider from "@/providers/AuthProvider";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
+import WavesAnimatedBackground from "../../components/WavesAnimatedBackground";
 
 interface AuthLayoutProps {
   children: React.ReactNode | React.ReactNode[];
@@ -7,9 +8,10 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <AuthProvider onDeauthRoute="/login">
-      <div className="h-full w-full overflow-hidden bg-gray-50">
+      <div className="h-full w-full overflow-hidden">
         <NavBar />
         {children}
+        <WavesAnimatedBackground />
       </div>
     </AuthProvider>
   );
