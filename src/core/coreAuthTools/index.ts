@@ -83,6 +83,7 @@ class CoreAuthTools {
       }
 
       config.baseURL = process.env.ENDPOINT_URL || "http://localhost:4000/";
+      console.log(`endpoint URL: ${config.baseURL}`);
 
       return config;
     });
