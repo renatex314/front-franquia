@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app/components/Button";
+import Button from "@/components/Button";
 import BackgroundImage from "@/assets/background.png";
 import { authorization } from "@/core";
 import { useFeedback } from "@/providers/FeedbackProvider";
@@ -16,8 +16,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ZodIssueCode, z } from "zod";
-import AppIcon from "../../components/AppIcon";
-import AnimatedBackground from "@/app/components/AnimatedBackground";
+import AppIcon from "../../../components/AppIcon";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const loginFormSchema = z
   .object({
@@ -100,7 +100,7 @@ const LoginPage = () => {
       const accessToken = authorization.getAccessToken();
 
       if (accessToken) {
-        router.push("/");
+        router.push("/student");
       }
     });
   }, [feedback, router]);

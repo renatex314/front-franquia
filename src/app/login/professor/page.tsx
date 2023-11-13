@@ -1,7 +1,7 @@
 "use client";
 
-import AnimatedBackground from "@/app/components/AnimatedBackground";
-import Button from "@/app/components/Button";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import Button from "@/components/Button";
 import { authorization } from "@/core";
 import { useFeedback } from "@/providers/FeedbackProvider";
 import services from "@/services";
@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ZodIssueCode, z } from "zod";
-import AppIcon from "../../components/AppIcon";
+import AppIcon from "../../../components/AppIcon";
 
 const loginFormSchema = z
   .object({

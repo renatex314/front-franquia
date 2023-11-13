@@ -18,7 +18,7 @@ const AccountSection = () => {
   }, [router]);
 
   return (
-    <div className="flex h-full ml-auto" ref={accountIconRef}>
+    <div className="flex h-full" ref={accountIconRef}>
       <UserIcon
         className="hover:scale-110 duration-100 cursor-pointer"
         role={authData.user?.role}

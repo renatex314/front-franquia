@@ -3,7 +3,7 @@ import "./globals.css";
 import AppProvider from "@/providers/AppProvider";
 
 const nunito = Nunito({
-  weight: "600",
+  weight: ["600", "800"],
   subsets: ["latin"],
 });
 

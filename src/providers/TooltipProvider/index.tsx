@@ -14,7 +14,7 @@ const TooltipProvider = ({ children }: TooltipProviderProps) => {
   return (
     <>
       {children}
-      <Tooltip id={TOOLTIP_ID} />
+      <Tooltip id={TOOLTIP_ID} className="z-50" />
     </>
   );
 };

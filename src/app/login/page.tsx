@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { PiStudentFill } from "react-icons/pi";
-import AnimatedBackground from "../components/AnimatedBackground";
-import Button from "../components/Button";
+import AnimatedBackground from "../../components/AnimatedBackground";
+import Button from "../../components/Button";
 
 const LoginPage = () => {
   const router = useRouter();

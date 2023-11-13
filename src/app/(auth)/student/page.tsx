@@ -1,7 +1,7 @@
 "use client";
 
 const RootPage = () => {
-  return <p>teste</p>;
+  return <div className="w-full h-full">teste</div>;
 };
 
 export default RootPage;
