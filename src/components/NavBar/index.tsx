@@ -5,19 +5,27 @@ import { useCallback, useMemo } from "react";
 import AccountSection from "./AccountSection";
 import AppLogo from "./AppLogo";
 import NavMenu, { MenusData } from "./NavMenu";
+import { twMerge } from "tailwind-merge";
 
-const NavBar = () => {
+interface NavBarProps {
+  className?: string;
+}
+const NavBar = ({ className }: NavBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const availableMenus: MenusData = useMemo(() => {
     return [
       {
-        label: "meus cursos",
+        label: "dashboard",
         route: "/student",
       },
       {
-        label: "pagamentos",
+        label: "meus cursos",
+        route: "/student/courses",
+      },
+      {
+        label: "meus pagamentos",
         route: "/student/payments",
       },
       {
@@ -35,7 +43,12 @@ const NavBar = () => {
   );
 
   return (
-    <div className="flex bg-white h-20 w-full shadow-sm border-b sticky top-0 px-16 z-50">
+    <div
+      className={twMerge(
+        "flex bg-white h-20 w-full shadow-sm border-b sticky top-0 px-16 z-50",
+        className
+      )}
+    >
       <AppLogo />
       <NavMenu
         className="ml-auto"

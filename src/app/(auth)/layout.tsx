@@ -8,8 +8,8 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <AuthProvider onDeauthRoute="/">
-      <div className="h-full w-full overflow-hidden">
-        <NavBar />
+      <div className="flex flex-col h-full w-full overflow-hidden">
+        <NavBar className="shrink-0" />
         {children}
         <WavesAnimatedBackground />
       </div>

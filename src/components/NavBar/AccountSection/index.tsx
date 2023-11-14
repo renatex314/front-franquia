@@ -24,7 +24,7 @@ const AccountSection = () => {
         role={authData.user?.role}
         ref={accountIconRef}
         onClick={() => setIsAccountMenuOpen(true)}
-        {...useTooltip("Meus dados")}
+        {...useTooltip("Meu cadastro")}
       />
 
       <Menu
@@ -35,7 +35,7 @@ const AccountSection = () => {
         anchorReference="anchorEl"
         onClose={() => setIsAccountMenuOpen(false)}
       >
-        <MenuItem onClick={openAccountPage}>Meus dados</MenuItem>
+        <MenuItem onClick={openAccountPage}>Meu cadastro</MenuItem>
         <Divider />
         <MenuItem onClick={() => authorization.clearAuthData()}>Sair</MenuItem>
       </Menu>

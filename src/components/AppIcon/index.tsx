@@ -1,11 +1,13 @@
 import Image from "next/image";
-import LogoImage from "@/assets/logo_low.png";
+import LogoHighImage from "@/assets/logo_high.png";
+import LogoLowImage from "@/assets/logo_low.png";
 import { twMerge } from "tailwind-merge";
 
 interface AppIconProps {
-  className: string;
+  className?: string;
+  res?: "low" | "high";
 }
-const AppIcon = ({ className }: AppIconProps) => {
+const AppIcon = ({ className, res = "low" }: AppIconProps) => {
   return (
     <div
       className={twMerge(
@@ -15,7 +17,7 @@ const AppIcon = ({ className }: AppIconProps) => {
     >
       <Image
         className="w-full h-full text-center object-contain"
-        src={LogoImage}
+        src={res === "low" ? LogoLowImage : LogoHighImage}
         alt="Global Speaking Logo"
       />
     </div>

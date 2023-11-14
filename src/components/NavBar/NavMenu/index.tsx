@@ -1,6 +1,9 @@
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 
+const removeUnusedBars = (path: string) => path.split('/').filter((subPath) => subPath !== '').join('/');
+const isMatchingCurrentRoute = (currentRoute: string, desiredRoute: string) => removeUnusedBars(currentRoute) === removeUnusedBars(desiredRoute);
+
 export type MenusData = Array<{
   label: string;
   route: string;
@@ -27,7 +30,7 @@ const NavMenu = ({
           onClick={() => onMenuClick && onMenuClick(menuData)}
         >
           <p
-            data-iscurrentroute={currentRoute === menuData.route}
+            data-iscurrentroute={isMatchingCurrentRoute(currentRoute, menuData.route)}
             className="relative after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-1 after:bg-primary after:rounded-full group-hover:after:w-11/12 after:duration-100 data-[iscurrentroute=true]:after:w-11/12 data-[iscurrentroute=true]:after:bg-secondary"
           >
             {menuData.label}
