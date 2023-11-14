@@ -82,7 +82,8 @@ class CoreAuthTools {
         config.headers.Authorization = `Bearer ${this.loadedAccessToken}`;
       }
 
-      config.baseURL = process.env.ENDPOINT_URL || "http://localhost:4000/";
+      config.baseURL =
+        process.env.NEXT_PUBLIC_ENDPOINT_URL || "http://localhost:4000/";
 
       return config;
     });
