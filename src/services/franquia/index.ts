@@ -1,2 +1,2 @@
-export * from './apiFranquia';
-export * from './query';
+export * from "./apiFranquia";
+export * from "./query";

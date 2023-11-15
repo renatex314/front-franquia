@@ -4,6 +4,7 @@ export interface GetTokenByAlunoDataProps {
 }
 
 export interface AlunoDataResponse {
+  alunoId: number;
   alunoNome: string;
   alunoEndereco?: string;
   alunoTelefone?: string;

@@ -4,7 +4,6 @@ import Button from "@/components/Button";
 import BackgroundImage from "@/assets/background.png";
 import { authorization } from "@/core";
 import { useFeedback } from "@/providers/FeedbackProvider";
-import services from "@/services";
 import { GetTokenByAlunoDataProps } from "@/services/auth/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField } from "@mui/material";
@@ -18,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { ZodIssueCode, z } from "zod";
 import AppIcon from "../../../components/AppIcon";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import { apiAuth } from "@/services/auth";
 
 const loginFormSchema = z
   .object({
@@ -60,7 +60,7 @@ const LoginPage = () => {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: async (props: GetTokenByAlunoDataProps) =>
-      await services.auth.getTokenByAlunoData(props),
+      await apiAuth.getTokenByAlunoData(props),
     onSuccess: (token) => {
       authorization.saveAccessToken(token);
 
@@ -100,7 +100,7 @@ const LoginPage = () => {
       const accessToken = authorization.getAccessToken();
 
       if (accessToken) {
-        router.push("/student");
+        router.push("/student/dashboard");
       }
     });
   }, [feedback, router]);

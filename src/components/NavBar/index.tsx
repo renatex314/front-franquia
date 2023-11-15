@@ -18,7 +18,7 @@ const NavBar = ({ className }: NavBarProps) => {
     return [
       {
         label: "dashboard",
-        route: "/student",
+        route: "/student/dashboard",
       },
       {
         label: "meus cursos",
