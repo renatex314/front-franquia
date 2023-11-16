@@ -9,6 +9,7 @@ import "moment/locale/pt-br";
 import TooltipProvider from "../TooltipProvider";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const theme = createTheme({}, ptBR);
 
@@ -25,6 +26,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
             adapterLocale="pt-br"
           >
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            <ReactQueryDevtools />
           </LocalizationProvider>
         </QueryProvider>
       </TooltipProvider>

@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingScreen from "@/components/LoadingScreen";
 import { useAuthData } from "@/providers/AuthProvider";
 import { useRouter } from "next/navigation";
 
@@ -15,7 +16,11 @@ const StudentLayout = ({ children }: StudentLayoutProps) => {
     return;
   }
 
-  return <>{children}</>;
+  if (authData.user?.role) {
+    return <>{children}</>;
+  } else {
+    return <LoadingScreen />
+  }
 };
 
 export default StudentLayout;

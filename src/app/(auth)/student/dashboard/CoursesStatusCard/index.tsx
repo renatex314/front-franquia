@@ -3,11 +3,7 @@ import ProgressCircle from "@/components/ProgressCircle";
 import { useAuthData } from "@/providers/AuthProvider";
 import { useQueryGetAlunoRegisteredCoursesStatus } from "@/services/aluno";
 import { AlunoDataResponse } from "@/services/auth/types";
-import {
-  CircularProgress,
-  circularProgressClasses,
-  linearProgressClasses,
-} from "@mui/material";
+import { Skeleton } from "@mui/material";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -57,7 +53,7 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
 
       return (
         <>
-          <div key={i} className="flex items-center">
+          <div key={i} className="flex items-center border-2 p-3 rounded-lg hover:bg-gray-500 hover:bg-opacity-5 cursor-pointer duration-100">
             <div className="flex flex-col">
               <p className="text-xl">{cursoNome}</p>
               <p className="text-gray-500">{cursoNivel}</p>
@@ -73,12 +69,16 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
   }, [registeredCoursesStatus]);
 
   return (
-    <Card className={twMerge("flex flex-col gap-5 overflow-y-auto", className)}>
+    <Card className={twMerge("flex flex-col gap-5 overflow-y-auto select-none", className)}>
       <p className="text-2xl">
         Seu progresso do mês de{" "}
         <span className="!capitalize">{actualMonthData?.monthName}</span>:
       </p>
-      {coursesStatusViews}
+      {isRegisteredCoursesStatusLoading ? (
+        <Skeleton height={'60px'} />
+      ) : (
+        coursesStatusViews
+      )}
       <p className="text-gray-400">Exibindo apenas matrículas ativas</p>
     </Card>
   );

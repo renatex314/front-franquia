@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col gap-5 justify-center items-center">
+    <div className="flex flex-col gap-5 justify-center items-center select-none">
       <p>
         <TbWorldQuestion className={"text-primary"} size="100px" />
       </p>

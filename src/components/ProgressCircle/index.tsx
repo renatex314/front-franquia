@@ -1,3 +1,5 @@
+'use client';
+
 import { CircularProgress, circularProgressClasses } from "@mui/material";
 import { twMerge } from "tailwind-merge";
 

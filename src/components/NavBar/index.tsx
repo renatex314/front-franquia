@@ -6,6 +6,7 @@ import AccountSection from "./AccountSection";
 import AppLogo from "./AppLogo";
 import NavMenu, { MenusData } from "./NavMenu";
 import { twMerge } from "tailwind-merge";
+import Divider from "../Divider";
 
 interface NavBarProps {
   className?: string;
@@ -56,7 +57,7 @@ const NavBar = ({ className }: NavBarProps) => {
         menusData={availableMenus}
         onMenuClick={onMenuClick}
       />
-      <div className="rounded-full ml-5 mr-10 my-auto h-[70%] w-[1px] bg-black bg-opacity-25"></div>
+      <Divider className="grow-0 h-[70%] my-auto ml-3 mr-5" direction="vertical" />
       <AccountSection />
     </div>
   );
