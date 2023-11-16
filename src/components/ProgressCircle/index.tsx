@@ -11,8 +11,9 @@ interface ProgressCircleProps {
 const ProgressCircle = ({
   className,
   size,
-  percentage,
+  percentage = 0,
 }: ProgressCircleProps) => {
+
   return (
     <div
       className={twMerge(
@@ -21,7 +22,7 @@ const ProgressCircle = ({
       )}
     >
       <CircularProgress
-        className="absolute top-1/2 left-1/2 !-translate-x-1/2 !-translate-y-1/2 text-gray-200"
+        className="absolute top-1/2 left-1/2 !-translate-x-1/2 !-translate-y-1/2 !text-gray-200"
         variant="determinate"
         value={100}
         size={size}
