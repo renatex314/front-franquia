@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <head>
         <meta charSet="UTF-8" />
-        <title>Front-end loja</title>
+        <title>Global Speaking</title>
         <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
       <body className={nunito.className}>
