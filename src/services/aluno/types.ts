@@ -1,5 +1,4 @@
 export interface GetAlunoRegisteredCoursesStatusProps {
-  alunoId: number;
   year: number;
   month: number;
 }

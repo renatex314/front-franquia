@@ -5,7 +5,6 @@ import {
 } from "./types";
 
 const getAlunoRegisteredCoursesStatus = async ({
-  alunoId,
   year,
   month,
 }: GetAlunoRegisteredCoursesStatusProps) =>
@@ -14,7 +13,6 @@ const getAlunoRegisteredCoursesStatus = async ({
       "/api/aluno/notas/desempenho",
       {
         params: {
-          alunoId,
           year,
           month,
         },

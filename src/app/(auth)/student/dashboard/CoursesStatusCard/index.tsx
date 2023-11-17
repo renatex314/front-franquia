@@ -11,9 +11,6 @@ interface CoursesStatusCardProps {
   className?: string;
 }
 const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
-  const authData = useAuthData();
-  const studentData = authData?.user?.userData as AlunoDataResponse;
-
   const actualMonthData = useMemo(() => {
     const nowDate = new Date();
     const nowYear = nowDate.getFullYear();
@@ -33,7 +30,6 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
     data: registeredCoursesStatus,
     isLoading: isRegisteredCoursesStatusLoading,
   } = useQueryGetAlunoRegisteredCoursesStatus({
-    alunoId: studentData?.alunoId,
     year: actualMonthData?.year,
     month: actualMonthData?.month,
   });
@@ -53,7 +49,10 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
 
       return (
         <>
-          <div key={i} className="flex items-center border-2 p-3 rounded-lg hover:bg-gray-500 hover:bg-opacity-5 cursor-pointer duration-100">
+          <div
+            key={i}
+            className="flex items-center border-2 p-3 rounded-lg hover:bg-gray-500 hover:bg-opacity-5 cursor-pointer duration-100"
+          >
             <div className="flex flex-col">
               <p className="text-xl">{cursoNome}</p>
               <p className="text-gray-500">{cursoNivel}</p>
@@ -69,13 +68,18 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
   }, [registeredCoursesStatus]);
 
   return (
-    <Card className={twMerge("flex flex-col gap-5 overflow-y-auto select-none", className)}>
+    <Card
+      className={twMerge(
+        "flex flex-col gap-5 overflow-y-auto select-none",
+        className
+      )}
+    >
       <p className="text-2xl">
         Seu progresso do mês de{" "}
         <span className="!capitalize">{actualMonthData?.monthName}</span>:
       </p>
       {isRegisteredCoursesStatusLoading ? (
-        <Skeleton height={'60px'} />
+        <Skeleton height={"60px"} />
       ) : (
         coursesStatusViews
       )}
