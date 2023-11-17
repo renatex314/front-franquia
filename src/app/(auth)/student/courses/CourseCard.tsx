@@ -29,7 +29,8 @@ const CourseCard = ({
       )}
     >
       <Image
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-90 group-hover:scale-110 duration-200"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 brightness-90 group-hover:scale-110 duration-200 data-[active=false]:grayscale"
+        data-active={courseStatus === "matriculado"}
         src={cardBackground}
         alt="background"
       />

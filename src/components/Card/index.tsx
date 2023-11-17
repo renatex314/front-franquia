@@ -7,7 +7,12 @@ interface CardProps {
 }
 const Card = ({ className, children }: CardProps) => {
   return (
-    <div className={twMerge("bg-white p-5 rounded-md", className)}>
+    <div
+      className={twMerge(
+        "bg-white p-5 rounded-md shadow-md duration-100",
+        className
+      )}
+    >
       {children}
     </div>
   );

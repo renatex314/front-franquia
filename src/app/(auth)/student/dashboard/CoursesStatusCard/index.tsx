@@ -1,16 +1,17 @@
 import Card from "@/components/Card";
 import ProgressCircle from "@/components/ProgressCircle";
-import { useAuthData } from "@/providers/AuthProvider";
 import { useQueryGetAlunoRegisteredCoursesStatus } from "@/services/aluno";
-import { AlunoDataResponse } from "@/services/auth/types";
 import { Skeleton } from "@mui/material";
-import { useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface CoursesStatusCardProps {
   className?: string;
 }
 const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
+  const router = useRouter();
+
   const actualMonthData = useMemo(() => {
     const nowDate = new Date();
     const nowYear = nowDate.getFullYear();
@@ -34,6 +35,13 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
     month: actualMonthData?.month,
   });
 
+  const openCourse = useCallback(
+    (matriculaId: number) => {
+      router.push(`/student/courses/${matriculaId}`);
+    },
+    [router]
+  );
+
   const coursesStatusViews = useMemo(() => {
     if (registeredCoursesStatus?.length === 0) {
       return (
@@ -51,6 +59,7 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
         <>
           <div
             key={i}
+            onClick={() => openCourse(registeredCourseStatusData?.matriculaId)}
             className="flex items-center border-2 p-3 rounded-lg hover:bg-gray-500 hover:bg-opacity-5 cursor-pointer duration-100"
           >
             <div className="flex flex-col">
@@ -65,7 +74,7 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
         </>
       );
     });
-  }, [registeredCoursesStatus]);
+  }, [openCourse, registeredCoursesStatus]);
 
   return (
     <Card

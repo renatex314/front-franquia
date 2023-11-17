@@ -2,29 +2,42 @@
 
 import { useQueryGetAlunoCoursesDataList } from "@/services/aluno";
 import CourseCard from "./CourseCard";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
+import { useRouter } from "next/navigation";
 
 const CoursesPage = () => {
+  const router = useRouter();
   const coursesList = useQueryGetAlunoCoursesDataList();
+
+  const openCourse = useCallback(
+    (matriculaId: number) => {
+      router.push(`/student/courses/${matriculaId}`);
+    },
+    [router]
+  );
 
   const coursesCardElements = useMemo(
     () =>
       coursesList?.data?.map((courseData, i) => (
-        <CourseCard
+        <div
           key={i}
-          courseName={courseData?.curso?.cursoNome}
-          courseLevel={courseData?.curso?.cursoNivel}
-          courseStatus={
-            courseData?.matricula?.matriculaStatus === "ativa"
-              ? "matriculado"
-              : "desmatriculado"
-          }
-          teachersList={courseData?.professores?.map(
-            (professorData) => professorData?.professorNome
-          )}
-        />
+          onClick={() => openCourse(courseData.matricula.matriculaId)}
+        >
+          <CourseCard
+            courseName={courseData?.curso?.cursoNome}
+            courseLevel={courseData?.curso?.cursoNivel}
+            courseStatus={
+              courseData?.matricula?.matriculaStatus === "ativa"
+                ? "matriculado"
+                : "desmatriculado"
+            }
+            teachersList={courseData?.professores?.map(
+              (professorData) => professorData?.professorNome
+            )}
+          />
+        </div>
       )),
-    [coursesList?.data]
+    [coursesList?.data, openCourse]
   );
 
   return (

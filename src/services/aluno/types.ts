@@ -20,6 +20,7 @@ export interface GetAlunoRegisteredCoursesStatusItem {
     franquiaCursoCursoId: number;
   };
   media: number;
+  matriculaId: number;
 }
 
 export interface GetAlunoCoursesDataListItem {
