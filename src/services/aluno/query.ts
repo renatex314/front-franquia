@@ -12,3 +12,9 @@ export const useQueryGetAlunoRegisteredCoursesStatus = (
       enabled: props && Object.values(props).every((value) => !!value),
     }
   );
+
+export const useQueryGetAlunoCoursesDataList = () =>
+  useQuery(
+    ["useQueryGetAlunoCoursesDataList"],
+    apiAluno.getAlunoCoursesDataList
+  );

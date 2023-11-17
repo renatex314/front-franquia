@@ -22,5 +22,32 @@ export interface GetAlunoRegisteredCoursesStatusItem {
   media: number;
 }
 
+export interface GetAlunoCoursesDataListItem {
+  matricula: {
+    matriculaId: number;
+    matriculaStatus: "ativa" | "inativa";
+    matriculaData: string;
+    matriculaAlunoId: number;
+    matriculaCursoFranquiaId: number;
+  };
+  curso: {
+    cursoId: number;
+    cursoNome: string;
+    cursoNivel: "iniciante" | "intermediario" | "avançado";
+    cursoIdiomaId: number;
+  };
+  professores: Array<{
+    professorId: number;
+    professorNome: string;
+    professorTelefone: string;
+    professorEmail: string;
+    professorSenhaHash: string;
+    professorCpf: string;
+  }>;
+}
+
 export type GetAlunoRegisteredCoursesStatusResponse =
   Array<GetAlunoRegisteredCoursesStatusItem>;
+
+export type GetAlunoCoursesDataListResponse =
+  Array<GetAlunoCoursesDataListItem>;
