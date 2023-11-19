@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import apiAluno from "./apiAluno";
-import { GetAlunoRegisteredCoursesStatusProps } from "./types";
+import {
+  GetAlunoRegisteredCoursesStatusProps,
+  GetAlunoSelectedCourseDataProps,
+} from "./types";
 
 export const useQueryGetAlunoRegisteredCoursesStatus = (
   props: GetAlunoRegisteredCoursesStatusProps
@@ -17,4 +20,15 @@ export const useQueryGetAlunoCoursesDataList = () =>
   useQuery(
     ["useQueryGetAlunoCoursesDataList"],
     apiAluno.getAlunoCoursesDataList
+  );
+
+export const useQueryGetAlunoSelectedCourseData = (
+  props: GetAlunoSelectedCourseDataProps
+) =>
+  useQuery(
+    ["useQueryGetAlunoSelectedCourseData"],
+    async () => await apiAluno.getAlunoSelectedCourseData(props),
+    {
+      enabled: !!props.matriculaId,
+    }
   );

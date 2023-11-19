@@ -53,3 +53,31 @@ export const parseStringToDate = (dateStr: string | null | undefined) => {
 
   return moment(dateStr);
 };
+
+export const convertDateToString = (date: Date) => {
+  if (Number.isNaN(date.getTime())) return "";
+
+  const day = date.getDate().toLocaleString("pt-BR", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  const month = (date.getMonth() + 1).toLocaleString("pt-BR", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  const year = date.getFullYear().toLocaleString("pt-BR", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+
+  return `${day}/${month}/${year}`;
+};
+
+export const convertNumberToMoneyFormat = (value: number) => {
+  const moneyFormat = Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  return moneyFormat;
+};
