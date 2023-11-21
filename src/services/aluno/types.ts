@@ -69,6 +69,21 @@ export type GetAlunoSelectedCourseDataResponse = {
     idiomaId: number;
     idiomaNome: string;
   };
+  aulas: Array<{
+    aulaId: number;
+    aulaData: string;
+    aulaLocal: string;
+    aulaStatus: "programada" | "realizada" | "cancelada";
+    professor: {
+      professorId: number;
+      professorNome: string;
+      professorTelefone: string;
+      professorEmail: string;
+      professorSenhaHash: string;
+      professorCpf: string;
+    };
+    aulaFranquiaCursoId: number;
+  }>;
   avaliacoes: Array<{
     avaliacaoId: number;
     avaliacaoNota: number;

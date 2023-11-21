@@ -14,6 +14,7 @@ import { convertDateToString } from "@/core/utils";
 import PaymentsList from "./PaymentsList";
 import { PiExamFill } from "react-icons/pi";
 import TeachersList from "./TeachersList";
+import LessonsList from "./LessonsList";
 
 const SelectedCoursePage = ({
   params,
@@ -51,9 +52,19 @@ const SelectedCoursePage = ({
           })) || []
         }
       />,
-      <></>,
-      <PaymentsList
+      <LessonsList
         key={1}
+        lessonsList={
+          selectedCourseData?.aulas?.map((aula) => ({
+            aulaData: aula.aulaData,
+            aulaLocal: aula.aulaLocal,
+            aulaStatus: aula.aulaStatus,
+            professorNome: aula.professor.professorNome,
+          })) || []
+        }
+      />,
+      <PaymentsList
+        key={2}
         paymentsList={
           selectedCourseData?.pagamentos?.map((pagamento) => ({
             pagamentoValor: pagamento.pagamentoValor,
@@ -64,7 +75,7 @@ const SelectedCoursePage = ({
         }
       />,
       <TeachersList
-        key={2}
+        key={3}
         teachersList={
           selectedCourseData?.professores?.map((professor) => ({
             professorNome: professor.professorNome,
@@ -74,6 +85,7 @@ const SelectedCoursePage = ({
       />,
     ],
     [
+      selectedCourseData?.aulas,
       selectedCourseData?.avaliacoes,
       selectedCourseData?.pagamentos,
       selectedCourseData?.professores,
