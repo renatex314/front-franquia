@@ -1,5 +1,4 @@
 import moment from "moment";
-import { isDate } from "util/types";
 import { v4 } from "uuid";
 export const generateUuid = () => v4();
 
@@ -71,6 +70,18 @@ export const convertDateToString = (date: Date) => {
   });
 
   return `${day}/${month}/${year}`;
+};
+
+export const convertDateToDateStringAPI = (date: Date | null) => {
+  if (!date) return date;
+
+  return `${date.getFullYear().toString()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
+};
+
+export const convertAPIDateStringToDate = (dateString: string) => {
+  return new Date(`${dateString?.split("T")?.[0]}T00:00:00.000`);
 };
 
 export const convertNumberToMoneyFormat = (value: number) => {

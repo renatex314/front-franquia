@@ -13,9 +13,11 @@ const AccountSection = () => {
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
   const openAccountPage = useCallback(() => {
-    router.push("/account");
+    if (authData.user?.role === "aluno") {
+      router.push("/student/account");
+    }
     setIsAccountMenuOpen(false);
-  }, [router]);
+  }, [authData?.user?.role, router]);
 
   return (
     <div className="flex h-full" ref={accountIconRef}>

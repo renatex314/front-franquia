@@ -131,6 +131,17 @@ export interface GetAlunoPaymentsListItem {
   };
 }
 
+export type UpdateAlunoDataProps = Partial<{
+  alunoNome: string | null;
+  alunoEndereco: string | null;
+  alunoTelefone: string | null;
+  alunoCpf: string | null;
+  alunoEmail: string | null;
+  alunoDataNascimento: string | null;
+  alunoFranquiaId: number | null;
+  alunoSenha: string | null;
+}>;
+
 export type GetAlunoPaymentsListResponse = Array<GetAlunoPaymentsListItem>;
 
 export type GetAlunoRegisteredCoursesStatusResponse =
