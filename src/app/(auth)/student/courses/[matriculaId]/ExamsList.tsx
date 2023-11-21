@@ -34,7 +34,7 @@ const ExamsList = ({ examsList, className }: ExamsListProps) => {
   );
 
   return (
-    <div className={twMerge("flex flex-col", className)}>
+    <div className={twMerge("flex flex-col gap-3", className)}>
       {examsElementsList?.length > 0 ? (
         examsElementsList
       ) : (
