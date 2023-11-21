@@ -93,7 +93,7 @@ const SelectedCoursePage = ({
   );
 
   return (
-    <div className="flex flex-col w-full h-full items-center pt-10 gap-3">
+    <div className="flex flex-col w-full h-full items-center py-10 gap-3 overflow-y-auto">
       <Card className="flex flex-col w-[50%] gap-1">
         {isSelectedCourseDataLoading ? (
           <>

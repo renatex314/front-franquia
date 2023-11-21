@@ -41,7 +41,7 @@ const CoursesPage = () => {
   );
 
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full overflow-y-auto pb-10">
       <div className="w-[80%] overflow-hidden grid grid-cols-1 min-[870px]:grid-cols-2 xl:grid-cols-3 m-10 mx-auto gap-3">
         {coursesCardElements}
       </div>

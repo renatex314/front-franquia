@@ -19,7 +19,7 @@ const DashboardPage = () => {
     useQueryGetFranquiaByFranquiaId(userData?.alunoFranquiaId);
 
   return (
-    <div className="flex flex-col w-full grow overflow-hidden items-center py-5 gap-3 [&>*]:w-[50%]">
+    <div className="flex flex-col w-full grow overflow-x-hidden overflow-y-auto items-center py-5 gap-3 [&>*]:w-[50%]">
       <Card className="w-[50%] flex p-8 justify-start items-center gap-5">
         <UserIcon className="w-14 h-14 m-0" role="aluno" />
         <div className="flex flex-col grow">
