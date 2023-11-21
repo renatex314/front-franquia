@@ -139,24 +139,24 @@ const SelectedCoursePage = ({
           onChange={(_, value) => setSelectedOption(value)}
         >
           <Tab
-            className="rounded-md overflow-hidden !mb-1"
+            className="!rounded-md overflow-hidden !mb-1"
             icon={<PiExamFill className="pointer-events-none" size={"25px"} />}
             {...useTooltip("Avaliações")}
           />
           <Tab
-            className="rounded-md overflow-hidden !mb-1"
+            className="!rounded-md overflow-hidden !mb-1"
             icon={
               <FaRegCalendar className="pointer-events-none" size={"25px"} />
             }
             {...useTooltip("Aulas")}
           />
           <Tab
-            className="rounded-md overflow-hidden !mb-1"
+            className="!rounded-md overflow-hidden !mb-1"
             icon={<MdPayments className="pointer-events-none" size={"25px"} />}
             {...useTooltip("Pagamentos")}
           />
           <Tab
-            className="rounded-md overflow-hidden !mb-1"
+            className="!rounded-md overflow-hidden !mb-1"
             icon={
               <FaChalkboardTeacher
                 className="pointer-events-none"

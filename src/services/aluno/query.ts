@@ -32,3 +32,6 @@ export const useQueryGetAlunoSelectedCourseData = (
       enabled: !!props.matriculaId,
     }
   );
+
+export const useQueryGetAlunoPaymentsList = () =>
+  useQuery(["useQueryGetAlunoPaymentsList"], apiAluno.getAlunoPaymentsList);

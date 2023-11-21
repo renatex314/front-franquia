@@ -1,6 +1,7 @@
 import { api } from "@/core";
 import {
   GetAlunoCoursesDataListResponse,
+  GetAlunoPaymentsListResponse,
   GetAlunoRegisteredCoursesStatusProps,
   GetAlunoRegisteredCoursesStatusResponse,
   GetAlunoSelectedCourseDataProps,
@@ -36,10 +37,15 @@ const getAlunoSelectedCourseData = async ({
     )
   )?.data;
 
+const getAlunoPaymentsList = async () =>
+  (await api.get<GetAlunoPaymentsListResponse>("/api/aluno/pagamentos/list"))
+    ?.data;
+
 const apiAluno = {
   getAlunoRegisteredCoursesStatus,
   getAlunoCoursesDataList,
   getAlunoSelectedCourseData,
+  getAlunoPaymentsList,
 };
 
 export default apiAluno;

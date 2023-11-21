@@ -109,6 +109,30 @@ export type GetAlunoSelectedCourseDataResponse = {
   }>;
 };
 
+export interface GetAlunoPaymentsListItem {
+  pagamentoId: number;
+  pagamentoValor: number;
+  pagamentoData: Date;
+  pagamentoMetodo: "crédito" | "débito" | "boleto";
+  pagamentoStatus: "pendente" | "pago" | "atrasado";
+  pagamentoMatriculaId: number;
+  matricula: {
+    matriculaId: number;
+    matriculaStatus: "ativa" | "inativa";
+    matriculaData: string;
+    matriculaAlunoId: number;
+    matriculaCursoFranquiaId: number;
+  };
+  curso: {
+    cursoId: number;
+    cursoNome: string;
+    cursoNivel: "iniciante" | "intermediario" | "avançado";
+    cursoIdiomaId: number;
+  };
+}
+
+export type GetAlunoPaymentsListResponse = Array<GetAlunoPaymentsListItem>;
+
 export type GetAlunoRegisteredCoursesStatusResponse =
   Array<GetAlunoRegisteredCoursesStatusItem>;
 
