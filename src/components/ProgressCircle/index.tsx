@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { CircularProgress, circularProgressClasses } from "@mui/material";
 import { twMerge } from "tailwind-merge";
@@ -13,7 +13,6 @@ const ProgressCircle = ({
   size,
   percentage = 0,
 }: ProgressCircleProps) => {
-
   return (
     <div
       className={twMerge(
@@ -38,7 +37,7 @@ const ProgressCircle = ({
         }}
       />
       <p className="flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        {percentage.toFixed(0)}%
+        {percentage?.toFixed?.(0)}%
       </p>
     </div>
   );

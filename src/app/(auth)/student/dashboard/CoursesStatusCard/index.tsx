@@ -68,7 +68,7 @@ const CoursesStatusCard = ({ className }: CoursesStatusCardProps) => {
               <p className="text-gray-500">{cursoNivel}</p>
             </div>
             <p className="flex justify-center items-center ml-auto mr-5 text-xl">
-              {media.toFixed(1)} / 5.0
+              {media?.toFixed?.(1)} / 5.0
             </p>
             <StarProgress progress={mediaProporcao * 100} size={40} />
             {/* <ProgressCircle size={"60px"} percentage={mediaProporcao * 100} /> */}

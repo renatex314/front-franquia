@@ -26,7 +26,7 @@ const ExamsList = ({ examsList, className }: ExamsListProps) => {
             </p>
           </div>
           <div className="ml-auto flex justify-center items-center">
-            {examData?.avaliacaoNota?.toFixed(1)} / 5.0
+            {examData?.avaliacaoNota?.toFixed?.(1)} / 5.0
           </div>
         </div>
       )),
