@@ -38,10 +38,10 @@ const LoginPage = () => {
             <PiStudentFill size="30px" />
             <p>Estudante</p>
           </Button>
-          <Button className="gap-3" onClick={redirectToProfessorLoginPage}>
+          {/* <Button className="gap-3" onClick={redirectToProfessorLoginPage}>
             <FaChalkboardTeacher size="30px" />
             <p>Professor</p>
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
